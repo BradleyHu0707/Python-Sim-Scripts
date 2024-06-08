@@ -46,11 +46,15 @@ while running:
 
     # Boundary checks
     if position.y >= HEIGHT:
-        velocity.y *= -BOUNCINESS
-        position.y = HEIGHT
+    velocity.y *= -BOUNCINESS
+    position.y = HEIGHT
+    if position.y <= 0:
+    velocity.y *= -BOUNCINESS
+    position.y = 0
     if position.x <= 0 or position.x >= WIDTH:
-        velocity.x *= -BOUNCINESS
-        position.x = max(0, min(position.x, WIDTH))
+    velocity.x *= -BOUNCINESS
+    position.x = max(0, min(position.x, WIDTH))
+
 
     # Drawing
     screen.fill(WHITE)
